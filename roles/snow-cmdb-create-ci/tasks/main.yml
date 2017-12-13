@@ -1,0 +1,23 @@
+---
+- name: Create a new CI
+  uri:
+    url: https://{{ instance_url }}/api/now/table/cmdb_ci_linux_server/
+    method: POST
+    user: "{{ instance_username }}"
+    password: "{{ instance_password }}"
+    force_basic_auth: yes
+    validate_certs: no
+    status_code: 201
+    body_format: json
+    headers:
+      Content-Type: application/json
+    body: >
+      {
+        "virtual": True,
+        "name": "test_from_ansible",
+        "os": "Linux"
+      }
+  register: restreturn
+
+- debug:
+    var: restdata.json.results

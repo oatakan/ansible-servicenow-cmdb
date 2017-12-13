@@ -1,0 +1,11 @@
+---
+instance_url: "{{ lookup('env', 'VMWARE_HOST') | default('localhost') }}"
+instance_username: "{{ lookup('env', 'VMWARE_USER') }}"
+instance_password: "{{ lookup('env', 'VMWARE_PASSWORD') }}"
+
+demo_users:
+  - username: demouser2
+    password: demo
+    first_name: demo
+    last_name: user2
+    email: demouser2@example.com
